@@ -36,5 +36,19 @@ def look_direction(direction):
             ))
     else:
         print('You look %s, and see nothing you like the look of.' % direction)
+
+@when('exit')
+def exit():
+    global running
+    running = False
+    raise EOFError
+
 look_around()
-start()
+
+running = True
+while running:
+    try:
+        start()
+    except Exception as e:
+        print("Uhhh %s" % e)
+        pass

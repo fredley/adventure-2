@@ -24,10 +24,16 @@ def look_around():
 @when('look DIRECTION')
 def look_direction(direction):
     if map.can_go(direction):
-        print('You look %s, and see %s' % (
-            direction,
-            map.current_room.exit(direction),
-        ))
+        if str(direction) == 'south' and str(map.current_room) == 'Scotland':
+            print('You look %s, and see, confusingly, %s' % (
+                direction,
+                map.current_room.exit(direction),
+            ))
+        else:
+            print('You look %s, and see, confusingly, %s' % (
+                direction,
+                map.current_room.exit(direction),
+            ))
     else:
         print('You look %s, and see nothing you like the look of.' % direction)
 look_around()

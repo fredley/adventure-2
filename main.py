@@ -9,6 +9,8 @@ def go(direction):
     if map.can_go(direction):
         print('You go %s.' % direction)
         map.go(direction)
+    else:
+        print("You can't go any further %s." % direction)
 
 @when('look around')
 def look_around():

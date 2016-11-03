@@ -1,4 +1,5 @@
 from adventurelib import *
+from knowledge import map_text
 
 class Map():
 
@@ -18,16 +19,17 @@ class Map():
   def get_location_name(self):
     return self.current_room_name
 
+
 class UkMap(Map):
 
   def __init__(self, room='london'):
 
     self.rooms = {
-      'scotland': Room(scotland_text),
-      'wales': Room(wales_text),
-      'west_country': Room(west_text),
-      'the_north': Room(north_text),
-      'london': Room(london_text)
+      'scotland': Room(map_text['scotland']),
+      'wales': Room(map_text['wales']),
+      'west_country': Room(map_text['west_country']),
+      'the_north': Room(map_text['the_north']),
+      'london': Room(map_text['london'])
     }
 
     self.rooms['london'].west = self.rooms['west_country']

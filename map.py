@@ -8,6 +8,7 @@ class Map():
 
   def go(self, direction):
     self.current_room = self.current_room.exit(direction)
+    print(self.current_room)
 
   def set_location(self, room_name):
     self.current_room_name = room_name

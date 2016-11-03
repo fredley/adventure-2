@@ -16,9 +16,6 @@ class Map():
   def get_location(self):
     return self.current_room
 
-  def get_location_name(self):
-    return self.current_room_name
-
 
 class UkMap(Map):
 

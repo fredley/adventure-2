@@ -43,6 +43,33 @@ def exit():
     running = False
     raise EOFError
 
+
+@when('zero')
+def increase():
+    score.value += 1
+    print("That's the spirit")
+    look_around()
+
+@when('one')
+def decrease():
+    score.value -= 1
+    print('BADDDD CHOICE')
+    look_around()
+
+
+score = Item(name='score')
+score.value = 0
+
+
+@when('talk')
+def talk():
+    print('You are talking to {}'.format(map.current_room.person['name']))
+    print('{}'.format(map.current_room.person['rally_opener']['string']))
+    print('What do you say?')
+    print('0: {}'.format(map.current_room.person['ripostes'][0]))
+    print('1: {}'.format(map.current_room.person['ripostes'][1]))
+    #print('successful_riposte: {}'.format(map.current_room.person['successful_riposte']))
+
 look_around()
 
 running = True

@@ -1,5 +1,5 @@
 from adventurelib import *
-from knowledge import map_text
+from knowledge import map_text, rally_openers, ripostes
 
 class Map():
 
@@ -48,3 +48,10 @@ class UkMap(Map):
     self.rooms['scotland'].arrive_text = map_text['scotland']['arrive']
 
     self.set_location('london')
+
+    self.rooms['london'].person = {
+        'name': 'Arthur',
+        'rally_opener': rally_openers[0],
+        'ripostes': [riposte for riposte in ripostes if riposte['id'] in rally_openers[0]['available_ripostes']],
+        'successful_riposte': rally_openers[0]['successful_riposte']
+    }

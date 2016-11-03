@@ -6,9 +6,8 @@ map = UkMap()
 
 @when('go DIRECTION')
 def go(direction):
-    location = map.current_room.exit(direction)
-    if location:
-        map.current_room = location
+    if map.can_go(direction):
+        map.go(direction)
         print('You go %s.' % direction)
 
 @when('look')

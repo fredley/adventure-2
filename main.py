@@ -10,8 +10,8 @@ def go(direction):
         map.go(direction)
         print('You go %s.' % direction)
 
-@when('look')
-def look():
+@when('look around')
+def look_around():
     print("You are currently in %s" % map.current_room)
     for direction in map.current_room.exits():
         print('To your %s, you see %s' % (
@@ -21,11 +21,10 @@ def look():
 
 @when('look DIRECTION')
 def look_direction(direction):
-    print(current_location)
-    print(direction)
-    if current_location.items:
-        for i in current_location.items:
-            print('A %s is here.' % i)
+    print('You look %s, and see %s' % (
+        direction,
+        map.current_room.exit(direction),
+    ))
 
-look()
+look_around()
 start()

@@ -36,7 +36,7 @@ map_text = {
 }
 
 information = [
-    {'string': "If we remain, we won't join the euro."},
-    {'string': 'If we remain, we will maintain control of our borders.'},
-    {'string': 'If we remain, we will add restrictions to our welfare system to new EU migrants.'},
+    {'string': "After looking around for a few moments, you spot a pub on the nearest corner. Without hestiation, you cancel your next appointment and head straight in."},
+    {'string': "On your way to your next appointment, you receive a wonderful phone call from a republican across the pond. You wonder why a man who talks so much sense can receive so much flak..."},
+    {'string': 'Something about this place feels strangely familiar. It would look great from the skies...'},
 ]

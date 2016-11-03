@@ -7,8 +7,8 @@ map = UkMap()
 @when('go DIRECTION')
 def go(direction):
     if map.can_go(direction):
-        map.go(direction)
         print('You go %s.' % direction)
+        map.go(direction)
 
 @when('look around')
 def look_around():

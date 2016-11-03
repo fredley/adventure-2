@@ -7,12 +7,11 @@ class Map():
     return self.current_room.exit(direction)
 
   def go(self, direction):
-    self.set_location(self.current_room.exit(direction))
-    print(self.descriptions[self.current_room_name])
+    self.current_room = self.current_room.exit(direction)
+    print(self.current_room.arrive_text)
 
-  def set_location(self, room_name):
-    self.current_room_name = room_name
-    self.current_room = self.rooms[room_name]
+  def set_location(self, room):
+    self.current_room = self.rooms[room]
 
   def get_location(self):
     return self.current_room
@@ -33,25 +32,22 @@ class UkMap(Map):
       'london': Room(map_text['london']['name'])
     }
 
-    self.descriptions = {
-      'scotland': map_text['scotland']['arrive'],
-      'wales': map_text['wales']['arrive'],
-      'west_country': map_text['west_country']['arrive'],
-      'the_north': map_text['the_north']['arrive'],
-      'london': map_text['london']['arrive']
-    }
-
     self.rooms['london'].west = self.rooms['west_country']
     self.rooms['london'].north = self.rooms['the_north']
+    self.rooms['london'].arrive_text = map_text['london']['arrive']
 
     self.rooms['west_country'].west = self.rooms['wales']
     self.rooms['west_country'].east = self.rooms['london']
+    self.rooms['west_country'].arrive_text = map_text['west_country']['arrive']
 
     self.rooms['wales'].east = self.rooms['west_country']
+    self.rooms['wales'].arrive_text = map_text['wales']['arrive']
 
     self.rooms['the_north'].north = self.rooms['scotland']
     self.rooms['the_north'].south = self.rooms['london']
+    self.rooms['the_north'].arrive_text = map_text['the_north']['arrive']
 
     self.rooms['scotland'].south = self.rooms['the_north']
+    self.rooms['scotland'].arrive_text = map_text['scotland']['arrive']
 
     self.set_location('london')

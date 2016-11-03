@@ -9,10 +9,14 @@ class Map():
     self.current_room = self.current_room.exit(direction)
 
   def set_location(self, room_name):
-    self.current_room = room
+    self.current_room_name = room_name
+    self.current_room = self.rooms[room_name]
 
   def get_location(self):
     return self.current_room
+
+  def get_location_name(self):
+    return self.current_room_name
 
 class UkMap(Map):
 
